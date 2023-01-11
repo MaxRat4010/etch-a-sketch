@@ -20,3 +20,15 @@ function hoverColor() {
 }
 
 hoverColor();
+
+const button = document.querySelector("input");
+
+button.addEventListener('click', () => {
+    numOfSquares();
+});
+
+function numOfSquares() {
+    if (button.value === "number of squares") {
+        prompt("how many squares per side would you like?", "");
+    }
+}
