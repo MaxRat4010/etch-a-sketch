@@ -17,7 +17,7 @@ function hoverColor() {
     let items = document.querySelectorAll('.gridItems');
     items.forEach(item => {
         item.addEventListener('mouseover', () => {
-            item.style.backgroundColor = 'orange';
+            item.style.backgroundColor = 'mediumpurple';
         });
     });
 }
@@ -41,7 +41,7 @@ function makeRows (numberPerRow) {
         if (i % box === 0) {
         div.style.cssText = "border: 0; height: 0; width: 100%";
         } else {
-        div.style.cssText = "border: 1px solid black; height: 25px; width: 25px";
+        div.style.cssText = `border: 1px solid black; height: ${600 / numberPerRow}px; width: ${600 / numberPerRow}px`;
         }
 
     }
