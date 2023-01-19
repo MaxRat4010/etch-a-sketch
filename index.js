@@ -7,9 +7,16 @@ button.addEventListener('click', ()=> {
 
 function numOfSquares() {
     if (button.value === "number of squares") {
-        let newNumPerRow = prompt("how many squares per side would you like?", "");
+        let newNumPerRow = prompt("how many squares per side would you like? (1-99)", "");
         let parse = parseInt(newNumPerRow);
-        makeRows(parse);
+        if (parse >= 100 || parse <= 0 || newNumPerRow === "" || isNaN(newNumPerRow)) {
+            alert ("choose a different number")
+            return false
+        } else if (newNumPerRow === null) {
+            return false;
+        } else {
+            makeRows(parse);
+        }
     }
 }
 
