@@ -1,23 +1,26 @@
 const container = document.getElementById("container");
-const button = document.querySelector("input");
+const button = document.querySelector('input[value="number of squares"]');
+const resetBtn = document.querySelector('input[value="reset"]');
 
-button.addEventListener('click', ()=> {
-    numOfSquares();
-})
+button.addEventListener('click', numOfSquares);
+
+resetBtn.addEventListener('click', resetGrid);
 
 function numOfSquares() {
-    if (button.value === "number of squares") {
-        let newNumPerRow = prompt("how many squares per side would you like? (1-99)", "");
-        let parse = parseInt(newNumPerRow);
-        if (parse >= 100 || parse <= 0 || newNumPerRow === "" || isNaN(newNumPerRow)) {
-            alert ("choose a different number")
-            return false
-        } else if (newNumPerRow === null) {
-            return false;
-        } else {
-            makeRows(parse);
-        }
+    let newNumPerRow = prompt("how many squares per side would you like? (1-99)", "");
+    let parse = parseInt(newNumPerRow);
+    if (parse >= 100 || parse <= 0 || newNumPerRow === "" || isNaN(newNumPerRow)) {
+        alert ("choose a different number")
+        return false
+    } else if (newNumPerRow === null) {
+        return false;
+    } else {
+        makeRows(parse);
     }
+}
+
+function resetGrid() {
+    makeRows(16);
 }
 
 function randomColor() {
@@ -43,7 +46,7 @@ function clearGrid() {
     gridArray.forEach(element => {
       container.removeChild(element);
     })
-  }
+}
 
 function makeRows (numberPerRow) {
     clearGrid();
