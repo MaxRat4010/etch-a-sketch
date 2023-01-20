@@ -20,11 +20,20 @@ function numOfSquares() {
     }
 }
 
+function randomColor() {
+    let letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i=0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color
+}
+
 function hoverColor() {
     let items = document.querySelectorAll('.gridItems');
     items.forEach(item => {
         item.addEventListener('mouseover', () => {
-            item.style.backgroundColor = 'mediumpurple';
+            item.style.backgroundColor = `${randomColor()}`;
         });
     });
 }
@@ -41,7 +50,7 @@ function makeRows (numberPerRow) {
     const total = (numberPerRow * numberPerRow) + numberPerRow;
     const box = numberPerRow + 1;
 
-    for (i=0; i < total; i++) {
+    for (let i=0; i < total; i++) {
         const div = document.createElement('div');
         container.appendChild(div).className = "gridItems";
 
